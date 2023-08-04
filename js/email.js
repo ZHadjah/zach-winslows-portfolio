@@ -6,18 +6,21 @@ function sendMail(){
         message: document.getElementById('message').value
     };
 
-    const serviceID = "service_hbf3x2m";
-    const tempalteID = "template_14cfr62";
+    const serviceID = "service_adgtt6j";
+    const tempalteID = "template_3ldqeau";
 
     emailjs
         .send(serviceID, tempalteID, params)
-        .then((res) => {
+        .then(() => {
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('subject').value = '';
             document.getElementById('message').value = '';
-            console.log('your msg got sent');
-            alert("msg sent")
+            Swal.fire({
+                icon: 'success',
+                title: 'The email has been sent!',
+                text: 'Zachary Winslow will respond ASAP.',
+              })
         })
         .catch((err) => console.log(err));
 }		
